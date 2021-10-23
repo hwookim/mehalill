@@ -1,5 +1,5 @@
 {
-  "name": "mehalill-client",
+  "name": "client",
   "private": true,
   "scripts": {
     "dev": "next dev",
