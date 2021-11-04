@@ -22,4 +22,12 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
   },
+  overrides: [
+    {
+      files: ['**/*.stories.*'],
+      rules: {
+        'import/no-anonymous-default-export': 'off',
+      },
+    },
+  ],
 };
