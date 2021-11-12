@@ -4,7 +4,9 @@
   border: 0;
   font: inherit;
   font-size: 100%;
-  vertical-align: baseline;
+  font-family: Maplestory, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+  'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+  'Malgun Gothic', sans-serif;
 }
 
 a:link,
