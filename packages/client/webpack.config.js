@@ -5,8 +5,7 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
       '@': path.resolve(__dirname, 'src'),
-      '@test': path.resolve(__dirname, 'test'),
-      '@stories': path.resolve(__dirname, 'stories'),
+      '@test': path.resolve(__dirname, '__test__'),
     },
   },
   module: {
