@@ -5,7 +5,9 @@
     "packages/*"
   ],
   "scripts": {
-    "client-dev": "yarn workspace client dev"
+    "client-dev": "yarn workspace client dev",
+    "client-test": "yarn workspace client test",
+    "storybook": "yarn workspace client storybook"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",
@@ -18,6 +20,7 @@
     "lerna": "^4.0.0",
     "prettier": "^2.4.1",
     "ts-jest": "^27.1.4",
-    "typescript": "4.4.4"
+    "typescript": "4.4.4",
+    "webpack": "5"
   }
 }
