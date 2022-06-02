@@ -1,0 +1,11 @@
+{
+  "name": "mehalill-domain",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --watch"
+  },
+  "license": "ISC",
+  "main": "src/index.ts"
+}
