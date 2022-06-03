@@ -8,7 +8,8 @@ export default class DailyTodo extends Todo {
   }
 
   public isDoneNow(): boolean {
-    if (this._isDone && !this.isCheckedToday()) {
+    if (!this._isDone || !this._lastChecked) return false;
+    if (!this.isCheckedToday()) {
       this.uncheck();
     }
     return this._isDone;
