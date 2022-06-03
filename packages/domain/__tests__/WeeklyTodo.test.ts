@@ -12,7 +12,7 @@ describe('isDoneNow', function () {
     const weeklyTodo = new WeeklyTodo({
       ...DEFAULT_ARGS,
       isDone: true,
-      lastModified: thursday,
+      lastChecked: thursday,
       resetDay: 4,
     });
 
@@ -24,7 +24,7 @@ describe('isDoneNow', function () {
     const weeklyTodo = new WeeklyTodo({
       ...DEFAULT_ARGS,
       isDone: true,
-      lastModified: wednesday,
+      lastChecked: wednesday,
       resetDay: 4,
     });
 

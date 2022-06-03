@@ -2,7 +2,7 @@ export interface TodoProps {
   name: string;
   thumbnail?: string;
   isDone?: boolean;
-  lastModified?: number | string | Date;
+  lastChecked?: number | string | Date;
 }
 
 export default class Todo {
@@ -12,12 +12,12 @@ export default class Todo {
   protected _lastChecked?: Date;
 
   constructor(props: TodoProps) {
-    const { name, thumbnail, isDone, lastModified } = props;
+    const { name, thumbnail, isDone, lastChecked } = props;
     this._name = name;
     this._thumbnail = thumbnail;
     this._isDone = isDone || false;
-    if (lastModified) {
-      this._lastChecked = new Date(lastModified);
+    if (lastChecked) {
+      this._lastChecked = new Date(lastChecked);
     }
   }
 

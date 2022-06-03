@@ -10,7 +10,7 @@ describe('isDoneNow', function () {
     const dailyTodo = new DailyTodo({
       ...DEFAULT_ARGS,
       isDone: true,
-      lastModified: yesterday,
+      lastChecked: yesterday,
     });
 
     expect(dailyTodo.isDoneNow()).toBeFalsy();
