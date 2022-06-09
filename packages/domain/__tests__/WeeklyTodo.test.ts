@@ -2,6 +2,7 @@ import WeeklyTodo, { WeeklyTodoProps } from '@/WeeklyTodo';
 import { getDayDateInWeek } from '@/utils';
 
 const DEFAULT_ARGS: WeeklyTodoProps = {
+  id: 0,
   name: '',
   resetDay: 0,
 };

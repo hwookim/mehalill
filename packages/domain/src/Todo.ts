@@ -1,4 +1,5 @@
 export interface TodoProps {
+  id: number;
   name: string;
   thumbnail?: string;
   isDone?: boolean;
@@ -6,13 +7,15 @@ export interface TodoProps {
 }
 
 export default class Todo {
+  protected readonly _id: number;
   protected _name: string;
   protected _thumbnail?: string;
   protected _isDone: boolean;
   protected _lastChecked?: Date;
 
   constructor(props: TodoProps) {
-    const { name, thumbnail, isDone, lastChecked } = props;
+    const { id, name, thumbnail, isDone, lastChecked } = props;
+    this._id = id;
     this._name = name;
     this._thumbnail = thumbnail;
     this._isDone = isDone || false;
@@ -30,7 +33,11 @@ export default class Todo {
     this._isDone = false;
   }
 
-  public get name() {
+  public get id(): number {
+    return this._id;
+  }
+
+  public get name(): string {
     return this._name;
   }
 
@@ -38,7 +45,7 @@ export default class Todo {
     this._name = name;
   }
 
-  public get thumbnail() {
+  public get thumbnail(): string | undefined {
     return this._thumbnail;
   }
 

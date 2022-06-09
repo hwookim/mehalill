@@ -1,6 +1,7 @@
 import DailyTodo, { DailyTodoProps } from '@/DailyTodo';
 
 const DEFAULT_ARGS: DailyTodoProps = {
+  id: 0,
   name: '',
 };
 
