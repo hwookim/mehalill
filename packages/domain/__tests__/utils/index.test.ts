@@ -1,8 +1,12 @@
 import { getDayDateInWeek } from '@/utils';
+import dayjs from 'dayjs';
 
 describe('getDayDateInWeek', function () {
-  test('해당 주의 요일의 날짜를 반환', function () {
-    const thursday = getDayDateInWeek(5);
-    expect(thursday.getDay()).toBe(5);
-  });
+  test.each([0, 1, 2, 3, 4, 5, 6])(
+    '해당 주의 요일의 날짜를 반환',
+    function (day) {
+      const result = dayjs(getDayDateInWeek(day));
+      expect(result.day()).toBe(day);
+    },
+  );
 });

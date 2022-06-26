@@ -1,5 +1,6 @@
 import Todo, { TodoProps } from './Todo';
 import { getDayDateInWeek } from '@/utils';
+import dayjs from 'dayjs';
 
 export interface WeeklyTodoProps extends TodoProps {
   resetDay: number;
@@ -29,7 +30,7 @@ export default class WeeklyTodo extends Todo {
     if (!this._lastChecked) return false;
 
     const resetDate = getDayDateInWeek(this._resetDay);
-    return this._lastChecked < resetDate;
+    return dayjs(this._lastChecked).isBefore(resetDate);
   }
 
   public set resetDay(resetDay: number) {

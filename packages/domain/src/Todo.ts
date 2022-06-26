@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 export interface TodoProps {
   id: number;
   name: string;
@@ -11,7 +13,7 @@ export default class Todo {
   protected _name: string;
   protected _thumbnail?: string;
   protected _isDone: boolean;
-  protected _lastChecked?: Date;
+  protected _lastChecked?: string;
 
   constructor(props: TodoProps) {
     const { id, name, thumbnail, isDone, lastChecked } = props;
@@ -20,13 +22,13 @@ export default class Todo {
     this._thumbnail = thumbnail;
     this._isDone = isDone || false;
     if (lastChecked) {
-      this._lastChecked = new Date(lastChecked);
+      this._lastChecked = dayjs(lastChecked).toISOString();
     }
   }
 
   public check(): void {
     this._isDone = true;
-    this._lastChecked = new Date();
+    this._lastChecked = dayjs().toISOString();
   }
 
   public uncheck(): void {

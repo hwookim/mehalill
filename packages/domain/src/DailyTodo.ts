@@ -1,4 +1,5 @@
 import Todo, { TodoProps } from './Todo';
+import dayjs from 'dayjs';
 
 export type DailyTodoProps = TodoProps;
 
@@ -19,11 +20,6 @@ export default class DailyTodo extends Todo {
     if (!this._isDone) return false;
     if (!this._lastChecked) return false;
 
-    const today = new Date();
-    return (
-      this._lastChecked.getDate() == today.getDate() &&
-      this._lastChecked.getMonth() == today.getMonth() &&
-      this._lastChecked.getFullYear() == today.getFullYear()
-    );
+    return dayjs().isSame(this._lastChecked);
   }
 }
