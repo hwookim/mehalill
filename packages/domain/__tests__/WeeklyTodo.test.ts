@@ -8,27 +8,43 @@ const DEFAULT_ARGS: WeeklyTodoProps = {
 };
 
 describe('isDoneNow', function () {
-  test('lastChecked가 초기화일 이후면 true를 반환', function () {
-    const thursday = getDayDateInWeek(5);
-    const weeklyTodo = new WeeklyTodo({
-      ...DEFAULT_ARGS,
-      isDone: true,
-      lastChecked: thursday,
-      resetDay: 4,
-    });
+  test.each([
+    [2, 1],
+    [3, 1],
+    [5, 4],
+    [6, 0],
+    [6, 6],
+  ])(
+    'lastChecked가 초기화일 이후면 true를 반환',
+    function (lastChecked, resetDay) {
+      const weeklyTodo = new WeeklyTodo({
+        ...DEFAULT_ARGS,
+        isDone: true,
+        lastChecked: getDayDateInWeek(lastChecked),
+        resetDay: resetDay,
+      });
 
-    expect(weeklyTodo.isDoneNow()).toBeTruthy();
-  });
+      expect(weeklyTodo.isDoneNow()).toBeTruthy();
+    },
+  );
 
-  test('lastChecked가 초기화일 이전이면 false를 반환', function () {
-    const wednesday = getDayDateInWeek(3);
-    const weeklyTodo = new WeeklyTodo({
-      ...DEFAULT_ARGS,
-      isDone: true,
-      lastChecked: wednesday,
-      resetDay: 4,
-    });
+  test.each([
+    [1, 2],
+    [3, 5],
+    [0, 6],
+    [3, 4],
+    [5, 6],
+  ])(
+    'lastChecked가 초기화일 이전이면 false를 반환',
+    function (lastChecked, resetDay) {
+      const weeklyTodo = new WeeklyTodo({
+        ...DEFAULT_ARGS,
+        isDone: true,
+        lastChecked: getDayDateInWeek(lastChecked),
+        resetDay: resetDay,
+      });
 
-    expect(weeklyTodo.isDoneNow()).toBeFalsy();
-  });
+      expect(weeklyTodo.isDoneNow()).toBeFalsy();
+    },
+  );
 });
